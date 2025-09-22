@@ -1,20 +1,38 @@
 package it.david.model;
 
 import it.david.utility.JobIdEnum;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name="dipendente")
 public class Dipendente {
 	
 
-	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
 	private String nome,cognome,email,telefono;
 	
+	@Column(name="data_assunzione")
 	private String dataAssunzione;
 	
+	@Enumerated(EnumType.STRING)
 	private JobIdEnum lavoroId;
+	
 	private double salario;
 	
+	@ManyToOne
+	@JoinColumn(name="id_dipartimento", referencedColumnName = "id_dipartimento")
 	private Dipartimento dipartimento;
 	
 	
