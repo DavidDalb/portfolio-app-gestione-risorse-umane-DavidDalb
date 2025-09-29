@@ -1,0 +1,47 @@
+package it.david.service;
+
+import org.springframework.stereotype.Service;
+
+import it.david.model.Dipartimento;
+import it.david.model.Dipendente;
+import it.david.repository.DipartimentoRepository;
+import it.david.repository.DipendenteRepository;
+import it.david.utility.JobIdEnum;
+
+@Service
+public class DataLoader {
+	
+	private DipendenteRepository dipendenteRepository;
+	private DipartimentoRepository dipartimentoRepository;
+	
+	
+	
+	//I.P By Constructor
+	public DataLoader(DipendenteRepository dipendenteRepository,DipartimentoRepository dipartimentoRepository) {
+		this.dipartimentoRepository = dipartimentoRepository;
+		this.dipendenteRepository = dipendenteRepository;
+	}
+
+	
+	
+	public void DataLoad() {
+		//Dipendenti
+		Dipendente dipendente1 = new Dipendente("JoVinco","Candido","JoVincoLaCandidatura@email.com","339 000 0000","27/09/25",
+				                                                                      JobIdEnum.SVILUPPATORE_SOFTWARE,1500.00);
+		
+		Dipendente dipendente2 = new Dipendente("Nik","Olaf","Nikolaf@email.com","339 111 0000","26/09/25",
+                                                                            JobIdEnum.COMMERCIALE,1500.00);
+		
+		//Dipartimenti
+		Dipartimento dipartimento1 = new Dipartimento("IT","Via Assunzione");
+		Dipartimento dipartimento2 = new Dipartimento("Marketing","Via del riposo");
+		
+		//Set Dipendenti -> Dipartimento                          //Set Dipartimento -> Dipendenti
+		dipendente1.setDipartimento(dipartimento1);               dipartimento1.getDipendenti().add(dipendente1);
+		dipendente2.setDipartimento(dipartimento2);               dipartimento1.getDipendenti().add(dipendente2);
+		
+	    dipendenteRepository.save(dipendente1);                   dipartimentoRepository.save(dipartimento1);
+	    dipendenteRepository.save(dipendente2);                   dipartimentoRepository.save(dipartimento2);
+	}
+	
+}

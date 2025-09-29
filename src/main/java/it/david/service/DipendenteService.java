@@ -40,20 +40,20 @@ public class DipendenteService {
 	
 	
 	//Metodi QUERY Personalizzati (SERVICE)
-	public Optional<Dipendente> getDipendenteByEmail(String email) throws EmptyEmailException {
+	public List<Dipendente> getDipendenteByEmail(String email) throws EmptyEmailException {
 		if(email == null || email.isEmpty()) {
 			throw new EmptyEmailException("l'email non può essere vuota");
 		}
 		return dipendenteRepository.findByEmail(email);
 	}
 	
-	List<Dipendente> getDipendentiBySalarioMaggioreDi(int salario) {
+	public List<Dipendente> getDipendentiBySalarioMaggioreDi(double salario) {
 		return dipendenteRepository.findBySalaryGreaterThan(salario);
 	}
-	List<Dipendente> getDipendentiOrderByDataAssunzioneAsc() {
+	public List<Dipendente> getDipendentiOrderByDataAssunzioneAsc() {
 		return dipendenteRepository.findAllByOrderByDataAssunzioneAsc();
 	}
-	List<Dipendente> getDipendentiByNomeAndCognome(String nome, String cognome) {
+	public List<Dipendente> getDipendentiByNomeAndCognome(String nome, String cognome) {
 		return dipendenteRepository.findByNomeAndCognome(nome, cognome);
 	}
 }

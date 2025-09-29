@@ -10,9 +10,9 @@ import it.david.model.Dipendente;
 @Repository
 public interface DipendenteRepository extends JpaRepository<Dipendente,Long> {
 
-	Optional<Dipendente> findByEmail(String email);
+	List<Dipendente> findByEmail(String email);
 	
-	List<Dipendente> findBySalaryGreaterThan(int salario);
+	List<Dipendente> findBySalaryGreaterThan(double salario);
 	
 	List<Dipendente> findAllByOrderByDataAssunzioneAsc();
 	
