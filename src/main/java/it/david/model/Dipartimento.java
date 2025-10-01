@@ -20,7 +20,7 @@ public class Dipartimento {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_dipartimento")
 	private Long id;
-
+	
 	private String nome;
 	private String indirizzo;
 	

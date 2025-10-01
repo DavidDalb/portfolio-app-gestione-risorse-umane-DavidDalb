@@ -33,7 +33,7 @@ public class DipendenteController {
 			return "index";
 	}
 		
-		@GetMapping("/cercaPerId/{id}")
+		@GetMapping("/cercaDipendente/{id}")
 		public String cercaPerId(@RequestParam Long id,Model model) {
 			Optional<Dipendente> dipendenteOpt = dipendenteService.getDipendenteById(id);
 			
@@ -42,7 +42,7 @@ public class DipendenteController {
 			return "dipendente_info";
 		
 			} else {
-				return "redirect:/dipendenti/";
+				return "index";
 			}
 		}
 		
@@ -64,7 +64,6 @@ public class DipendenteController {
 		public String eliminaDipendentePerId(@RequestParam Long id) {
 			 dipendenteService.removeDipendente(id);
 			return "redirect:/dipendenti/";
-			
 		}
 		
 		
