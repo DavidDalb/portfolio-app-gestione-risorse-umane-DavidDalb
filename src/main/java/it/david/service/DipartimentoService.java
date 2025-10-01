@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import it.david.exceptions.IdNotFoundException;
 import it.david.model.Dipartimento;
 import it.david.repository.DipartimentoRepository;
 
@@ -27,8 +28,11 @@ public class DipartimentoService {
 		return dipartimentoRepository.findAll();
 	}
 
-	public Optional<Dipartimento> getDipartimentoById(Long id) {
-		return dipartimentoRepository.findById(id);
+	public Optional<Dipartimento> getDipartimentoById(Long id) throws IdNotFoundException {
+		if(id == null) {
+		  throw new IdNotFoundException("Dipartimento con id [" + id + "] non trovato.");
+		}
+			return dipartimentoRepository.findById(id);
 	}
 	
 	public Dipartimento createDipartimento(Dipartimento dipartimentoNuovo) {
