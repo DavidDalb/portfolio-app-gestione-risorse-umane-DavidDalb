@@ -48,7 +48,7 @@ public class DipendenteService {
 	}
 	
 	public List<Dipendente> getDipendentiBySalarioMaggioreDi(double salario) {
-		return dipendenteRepository.findBySalaryGreaterThan(salario);
+		return dipendenteRepository.findBySalarioGreaterThan(salario);
 	}
 	public List<Dipendente> getDipendentiOrderByDataAssunzioneAsc() {
 		return dipendenteRepository.findAllByOrderByDataAssunzioneAsc();

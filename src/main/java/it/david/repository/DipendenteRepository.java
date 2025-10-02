@@ -11,7 +11,7 @@ public interface DipendenteRepository extends JpaRepository<Dipendente,Long> {
 
 	List<Dipendente> findByEmail(String email);
 	
-	List<Dipendente> findBySalaryGreaterThan(double salario);
+	List<Dipendente> findBySalarioGreaterThan(double salario);
 	
 	List<Dipendente> findAllByOrderByDataAssunzioneAsc();
 	
