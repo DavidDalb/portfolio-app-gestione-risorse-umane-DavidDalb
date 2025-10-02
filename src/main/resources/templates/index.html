@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Lista Dipendenti</title>
+</head>
+
+<body>
+<h1>Lista Dipendenti</h1>
+
+
+<a th:href="@{/dipendenti/formDipendente}">Aggiungi nuovo dipendente</a>
+
+
+<table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Salario</th>
+                <th>Azioni</th>
+            </tr>
+        </thead>
+
+     <tbody>
+            <tr th:each="dipendente : ${listaDipendenti}">
+          <td th:text="${dipendente.id}"></td>
+          <td th:text="${dipendente.nome}"></td>
+          <td th:text="${dipendente.cognome}"></td>
+          <td th:text="${dipendente.salario}"></td>
+          <td> <a th:href="@{/dipendenti/elimina/{id}(id=${dipendente.id})}">Elimina</a></td>
+       </tr>
+     </tbody>
+</table>
+
+
+</body>
