@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -36,7 +37,7 @@ public class DipartimentoController {
 	}
 
 	@GetMapping("/cercaDipartimento/{id}")
-	public String cercaDipartimentoPerId(@RequestParam Long id,Model model) throws IdNotFoundException {
+	public String cercaDipartimentoPerId(@PathVariable Long id,Model model) throws IdNotFoundException {
 		Optional<Dipartimento> dipartimentoOpt = dipartimentoService.getDipartimentoById(id);
 		model.addAttribute("dipartimento",dipartimentoOpt.get());
 			return "dipartimenti_list";
@@ -49,7 +50,7 @@ public class DipartimentoController {
 	}
 	
 	@GetMapping("/elimina/{id}")
-	public String eliminaDipartimentoPerId(@RequestParam Long id) {
+	public String eliminaDipartimentoPerId(@PathVariable Long id) {
 		 dipartimentoService.removeDipartimento(id);
 		return "redirect:/dipartimenti_list";
 	}

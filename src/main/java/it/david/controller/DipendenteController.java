@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,12 +30,12 @@ public class DipendenteController {
 		@GetMapping("/")
 		public String mostraHomePage(Model model) {
 			List<Dipendente> listaDipendenti = dipendenteService.getAllDipendenti();
-			model.addAttribute("ListaDipendenti",listaDipendenti);
+			model.addAttribute("listaDipendenti",listaDipendenti);
 			return "index";
 	}
 		
 		@GetMapping("/cercaDipendente/{id}")
-		public String cercaPerId(@RequestParam Long id,Model model) {
+		public String cercaPerId(@PathVariable Long id,Model model) {
 			Optional<Dipendente> dipendenteOpt = dipendenteService.getDipendenteById(id);
 			
 			if(dipendenteOpt.isPresent()) {
@@ -61,7 +62,7 @@ public class DipendenteController {
 		
 		
 		@GetMapping("/elimina/{id}")
-		public String eliminaDipendentePerId(@RequestParam Long id) {
+		public String eliminaDipendentePerId(@PathVariable Long id) {
 			 dipendenteService.removeDipendente(id);
 			return "redirect:/dipendenti/";
 		}
@@ -75,7 +76,7 @@ public class DipendenteController {
 				return "index";
 				
 				} else {
-					model.addAttribute("ListaDipendenti",dipendenteEmailOpt);
+					model.addAttribute("listaDipendenti",dipendenteEmailOpt);
 					  return "index";
 			}
 		}
@@ -84,7 +85,7 @@ public class DipendenteController {
 			@GetMapping("/salario")
 			public String cercaPerSalarioMaggioreDi(@RequestParam double salario,Model model) {
 				List<Dipendente> dipendentiPerSalariMG = dipendenteService.getDipendentiBySalarioMaggioreDi(salario);
-				model.addAttribute("ListaDipendenti",dipendentiPerSalariMG);
+				model.addAttribute("listaDipendenti",dipendentiPerSalariMG);
 				return "index";
 				
 			}
@@ -93,14 +94,14 @@ public class DipendenteController {
 			@GetMapping("/ordina_per_dataAssunzione")
 			public String ordinaDipendentiPerDataAssunzioneAsc(Model model) {
 				List<Dipendente> dataAssunzDipendentiAsc = dipendenteService.getDipendentiOrderByDataAssunzioneAsc();
-				model.addAttribute("ListaDipendenti",dataAssunzDipendentiAsc);
+				model.addAttribute("listaDipendenti",dataAssunzDipendentiAsc);
 				return "index";
 			}
 		
 			@GetMapping("/cerca/nome-cognome")
 			public String ordinaPerNomeECognome(@RequestParam String nome, @RequestParam String cognome,Model model) {
 				 List<Dipendente> dipendentiPerNomeCognome = dipendenteService.getDipendentiByNomeAndCognome(nome, cognome);
-				 model.addAttribute("ListaDipendenti", dipendentiPerNomeCognome);
+				 model.addAttribute("listaDipendenti", dipendentiPerNomeCognome);
 				 return "index";
 			}
 		}
