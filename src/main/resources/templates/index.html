@@ -19,6 +19,7 @@
                 <th>Nome</th>
                 <th>Cognome</th>
                 <th>Salario</th>
+                <th>Email</th>
                 <th>Azioni</th>
             </tr>
         </thead>
@@ -29,6 +30,7 @@
           <td th:text="${dipendente.nome}"></td>
           <td th:text="${dipendente.cognome}"></td>
           <td th:text="${dipendente.salario}"></td>
+          <td th:text="${dipendente.email}"></td>
           <td> <a th:href="@{/dipendenti/elimina/{id}(id=${dipendente.id})}">Elimina</a></td>
        </tr>
      </tbody>
