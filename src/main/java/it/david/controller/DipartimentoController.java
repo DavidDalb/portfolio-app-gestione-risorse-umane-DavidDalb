@@ -31,7 +31,7 @@ public class DipartimentoController {
 	@GetMapping("/")
 	public String mostraListaDipartimenti(Model model) {
 		List<Dipartimento> listaDipartimenti = dipartimentoService.getAllDipartimenti();
-		model.addAttribute("ListaDipartimenti", listaDipartimenti);
+		model.addAttribute("listaDipartimenti", listaDipartimenti);
 		return "dipartimenti_list";
 		
 	}
@@ -46,13 +46,13 @@ public class DipartimentoController {
 	@PostMapping("/salva") 
 	public String salvaDipartimento(@ModelAttribute Dipartimento dipartimento) {
 		dipartimentoService.createDipartimento(dipartimento);
-		return "redirect:/dipartimenti_list/";
+		return "redirect:/dipartimenti/";
 	}
 	
 	@GetMapping("/elimina/{id}")
 	public String eliminaDipartimentoPerId(@PathVariable Long id) {
 		 dipartimentoService.removeDipartimento(id);
-		return "redirect:/dipartimenti_list";
+		return "redirect:/dipartimenti/";
 	}
 	
 	@GetMapping("/formDipartimento")

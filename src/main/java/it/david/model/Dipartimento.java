@@ -3,6 +3,7 @@ package it.david.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,7 +25,7 @@ public class Dipartimento {
 	private String nome;
 	private String indirizzo;
 	
-	@OneToMany(mappedBy= "dipartimento")
+	@OneToMany(mappedBy= "dipartimento", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<Dipendente> dipendenti;
 	
 	
