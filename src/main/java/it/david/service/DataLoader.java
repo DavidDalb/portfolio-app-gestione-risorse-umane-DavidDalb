@@ -31,10 +31,10 @@ public class DataLoader {
 				Dipartimento dipartimento2 = new Dipartimento("Marketing","Via del riposo");
 				
 		//Dipendenti
-		Dipendente dipendente1 = new Dipendente("JoVinco","Candido","JoVincoLaCandidatura@email.com","339 000 0000","27/09/25",
+		Dipendente dipendente1 = new Dipendente("TestNome","TestCognome","TestEmail1@email.com","339 000 0000","27/09/25",
 				                                                                      JobIdEnum.SVILUPPATORE_SOFTWARE,1500.00);
 		
-		Dipendente dipendente2 = new Dipendente("Nik","Olaf","Nikolaf@email.com","339 111 0000","26/09/25",
+		Dipendente dipendente2 = new Dipendente("TestNome2","TestCognome3","TestEmail2@email.com","339 111 0000","26/09/25",
                                                                             JobIdEnum.COMMERCIALE,1500.00);
 		
 		

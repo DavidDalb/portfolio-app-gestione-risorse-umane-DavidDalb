@@ -25,7 +25,7 @@
              <tr th:each="dipartimento : ${listaDipartimenti}">
                <td th:text="${dipartimento.id}"></td>
                 <td th:text="${dipartimento.nome}"></td>
-                <td th:text="${dipartimento.sede}"></td>
+                <td th:text="${dipartimento.indirizzo}"></td>
                 
                <td> <a th:href="@{/dipartimenti/elimina/{id}(id=${dipartimento.id})}">Elimina</a> </td>
                </tr>

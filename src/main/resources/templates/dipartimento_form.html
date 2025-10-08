@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Dipartimento</title>
+</head>
+
+<body>
+
+<h1 th:text="${dipartimento.id == null ? 'Aggiungi Nuovo Dipartimento' : 'Modifica Dipartimento'}">Form Dipartimento</h1>
+
+<form th:action="@{/dipartimenti/salva}" th:object="${dipartimento}" method="post">
+
+ <input type="hidden" th:field="*{id}" />
+        
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" th:field="*{nome}" required>
+        
+        <label for="sede">Sede:</label>
+        <input type="text" id="sede" th:field="*{indirizzo}" required>
+
+        <br>
+        <button type="submit">Salva Dipartimento</button>
+        
+        <a th:href="@{/dipartimenti/}">Annulla e Torna alla Lista</a>
+
+</form>
+
+
+</body>
+
+</html>
