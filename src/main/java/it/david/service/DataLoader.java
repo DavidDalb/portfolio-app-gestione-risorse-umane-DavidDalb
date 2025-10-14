@@ -1,5 +1,6 @@
 package it.david.service;
 
+import org.springframework.boot.CommandLineRunner; 
 import org.springframework.stereotype.Service;
 
 import it.david.model.Dipartimento;
@@ -9,7 +10,7 @@ import it.david.repository.DipendenteRepository;
 import it.david.utility.JobIdEnum;
 
 @Service
-public class DataLoader {
+public class DataLoader implements CommandLineRunner{
 	
 	private DipendenteRepository dipendenteRepository;
 	private DipartimentoRepository dipartimentoRepository;
@@ -23,8 +24,8 @@ public class DataLoader {
 	}
 
 	
-	
-	public void DataLoad() {
+	@Override
+	public void run(String...args) throws Exception {
 		
 		//Dipartimenti
 				Dipartimento dipartimento1 = new Dipartimento("IT","Via Assunzione");
@@ -34,7 +35,7 @@ public class DataLoader {
 		Dipendente dipendente1 = new Dipendente("TestNome","TestCognome","TestEmail1@email.com","339 000 0000","27/09/25",
 				                                                                      JobIdEnum.SVILUPPATORE_SOFTWARE,1500.00);
 		
-		Dipendente dipendente2 = new Dipendente("TestNome2","TestCognome3","TestEmail2@email.com","339 111 0000","26/09/25",
+		Dipendente dipendente2 = new Dipendente("TestNome2","TestCognome2","TestEmail2@email.com","339 111 0000","26/09/25",
                                                                             JobIdEnum.COMMERCIALE,1500.00);
 		
 		
