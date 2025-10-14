@@ -34,7 +34,7 @@ public class DipendenteController {
 			return "index";
 	}
 		
-		@GetMapping("/cercaDipendente/{id}")
+		@GetMapping("/info/{id}")
 		public String cercaPerId(@PathVariable Long id,Model model) {
 			Optional<Dipendente> dipendenteOpt = dipendenteService.getDipendenteById(id);
 			
