@@ -4,16 +4,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
-import it.david.service.DataLoader;
-
 @SpringBootApplication
 public class PortFolioAppGestioneRisorseUmaneApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		ApplicationContext context =
 		SpringApplication.run(PortFolioAppGestioneRisorseUmaneApplication.class, args);
 		
-		context.getBean(DataLoader.class).DataLoad();
+		//Porzione di codice commentata per evitare che il dataloader carichi 2 volte, da decommentare se si ha intenzione di testare su MySQL
+		//context.getBean(DataLoader.class).run();
 	}
 
 }
