@@ -13,35 +13,33 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="dipendente")
+@Table(name = "dipendente")
 public class Dipendente {
-	
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	private String nome,cognome,email,telefono;
-	
-	@Column(name="data_assunzione")
+
+	private String nome, cognome, email, telefono;
+
+	@Column(name = "data_assunzione")
 	private String dataAssunzione;
-	
+
 	@Enumerated(EnumType.STRING)
 	private JobIdEnum lavoroId;
-	
+
 	private double salario;
-	
+
 	@ManyToOne
-	@JoinColumn(name="id_dipartimento", referencedColumnName = "id_dipartimento")
+	@JoinColumn(name = "id_dipartimento", referencedColumnName = "id_dipartimento")
 	private Dipartimento dipartimento;
-	
-	
-	
-	public Dipendente() {}
-	
+
+	public Dipendente() {
+	}
+
 	public Dipendente(String nome, String cognome, String email, String telefono, String dataAssunzione,
 			JobIdEnum lavoroId, double salario) {
-		
+
 		this.nome = nome;
 		this.cognome = cognome;
 		this.email = email;
@@ -51,8 +49,6 @@ public class Dipendente {
 		this.salario = salario;
 	}
 
-	
-	
 	public String getNome() {
 		return nome;
 	}
@@ -121,13 +117,9 @@ public class Dipendente {
 		return id;
 	}
 
-	
-	
 	@Override
 	public String toString() {
 		return " id: " + id + " nome: " + nome + " cognome: " + cognome + " email: " + email + " telefono: " + telefono
 				+ " dataAssunzione: " + dataAssunzione + " lavoroId: " + lavoroId + " salario: " + salario;
 	}
 }
-
-

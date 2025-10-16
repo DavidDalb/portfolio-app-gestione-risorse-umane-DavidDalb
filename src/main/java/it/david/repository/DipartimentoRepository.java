@@ -7,8 +7,8 @@ import org.springframework.stereotype.Repository;
 import it.david.model.Dipartimento;
 
 @Repository
-public interface DipartimentoRepository extends JpaRepository<Dipartimento,Long> {
+public interface DipartimentoRepository extends JpaRepository<Dipartimento, Long> {
 
 	List<Dipartimento> findAllByNome(String nomeDipartimento);
-	
+
 }
