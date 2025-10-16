@@ -32,6 +32,9 @@
           <td th:text="${dipendente.salario}"></td>
           <td th:text="${dipendente.email}"></td>
           <td> <a th:href="@{/dipendenti/elimina/{id}(id=${dipendente.id})}">Elimina</a></td>
+          <td>
+        <a th:href="@{/dipendenti/info/{id}(id=${dipendente.id})}">Visualizza Dettagli</a>
+    </td>
        </tr>
      </tbody>
 </table>
