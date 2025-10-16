@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="'Dettagli Dipendente: ' + ${dipendente.nome}">Dettagli Dipendente</title>
+</head>
+<body>
+    
+    <h1 th:text="'Dettagli di ' + ${dipendente.nome} + ' ' + ${dipendente.cognome}">Dettagli Dipendente</h1>
+
+    <table border="1">
+        <tbody>
+            <tr>
+                <th>ID:</th>
+                <td th:text="${dipendente.id}"></td>
+            </tr>
+            <tr>
+                <th>Nome:</th>
+                <td th:text="${dipendente.nome}"></td>
+            </tr>
+            <tr>
+                <th>Cognome:</th>
+                <td th:text="${dipendente.cognome}"></td>
+            </tr>
+            <tr>
+                <th>Salario:</th>
+                <td th:text="${dipendente.salario}"></td>
+            </tr>
+            <tr>
+                <th>Telefono:</th>
+                <td th:text="${dipendente.telefono}"></td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+    <br>
+    
+    <a th:href="@{/dipendenti/}">Torna alla Lista Dipendenti</a>
+    
+    </body>
+</html>
